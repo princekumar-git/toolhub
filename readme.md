@@ -1,7 +1,3 @@
-This README is designed to give your project a professional edge while clearly inviting other developers to contribute to your "Digital Arsenal."
-
----
-
 # ToolHub | All-in-One Digital Arsenal
 
 **ToolHub** is a sleek, minimalist suite of essential web utilities designed for developers, creators, and daily productivity. Built with a focus on speed and aesthetic clarity, it provides a centralized hub for common tasks—from currency conversion to precise weather tracking—all within a single-page, responsive interface.
