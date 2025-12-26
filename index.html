@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToolHub | All-in-One Digital Arsenal</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: {
+                        deep: '#1B211A',   /* Background */
+                        moss: '#628141',   /* Primary/Borders */
+                        sage: '#8BAE66',   /* Accents/Highlights */
+                        sand: '#EBD5AB',   /* Text */
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #1B211A;
+            background-image: radial-gradient(circle at 50% 0%, #2a3328 0%, #1B211A 70%);
+            color: #EBD5AB;
+            min-height: 100vh;
+        }
+
+        .glass-panel {
+            background: rgba(27, 33, 26, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(98, 129, 65, 0.2);
+        }
+
+        .tool-card:hover {
+            border-color: #8BAE66;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(139, 174, 102, 0.3);
+        }
+
+        input, textarea, select {
+            background: #151914 !important;
+            border: 1px solid rgba(98, 129, 65, 0.3) !important;
+            color: #EBD5AB !important;
+            outline: none !important;
+        }
+
+        input:focus { border-color: #8BAE66 !important; }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #628141; border-radius: 10px; }
+    </style>
+</head>
+
+<body class="font-sans antialiased selection:bg-sage selection:text-deep">
+
+    <nav class="w-full backdrop-blur-lg bg-deep/80 border-b border-moss/30 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="showSection('home')">
+                <div class="w-10 h-10 bg-gradient-to-br from-sage to-moss rounded-lg flex items-center justify-center text-deep font-bold shadow-lg">TH</div>
+                <span class="text-2xl font-bold tracking-tighter">ToolHub</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="text-right">
+                    <div id="nav-clock" class="text-sage font-mono font-bold text-lg">00:00:00</div>
+                    <div id="nav-date" class="text-[10px] uppercase tracking-widest opacity-40">Loading...</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 py-12">
+
+        <section id="home-section">
+            <div class="text-center mb-16">
+                <h1 class="text-5xl md:text-6xl font-black mb-4 tracking-tight">Your Digital <span class="text-sage">Arsenal.</span></h1>
+                <p class="text-sand/50 italic">Minimalist tools for developers, creators, and daily productivity.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div onclick="showSection('currency')" class="tool-card p-8 rounded-3xl glass-panel cursor-pointer transition-all">
+                    <div class="mb-4 text-sage text-4xl"><i class="fa-solid fa-coins"></i></div>
+                    <h3 class="text-xl font-bold">Currency Converter</h3>
+                    <p class="text-sand/40 text-sm mt-2">Live global exchange rates.</p>
+                </div>
+                <div onclick="showSection('json')" class="tool-card p-8 rounded-3xl glass-panel cursor-pointer transition-all">
+                    <div class="text-sage text-4xl mb-4"><i class="fa-solid fa-code"></i></div>
+                    <h3 class="text-xl font-bold">JSON DevTools</h3>
+                    <p class="text-sand/40 text-sm mt-2">Format, Minify, and Validate JSON.</p>
+                </div>
+                <div onclick="showSection('clock')" class="tool-card p-8 rounded-3xl glass-panel cursor-pointer transition-all">
+                    <div class="text-sage text-4xl mb-4"><i class="fa-solid fa-stopwatch"></i></div>
+                    <h3 class="text-xl font-bold">Clock Suite</h3>
+                    <p class="text-sand/40 text-sm mt-2">Stopwatch, Timer, & System Clock.</p>
+                </div>
+                <div onclick="showSection('pass')" class="tool-card p-8 rounded-3xl glass-panel cursor-pointer transition-all">
+                    <div class="text-sage text-4xl mb-4"><i class="fa-solid fa-key"></i></div>
+                    <h3 class="text-xl font-bold">Pass Generator</h3>
+                    <p class="text-sand/40 text-sm mt-2">Secure, random keys.</p>
+                </div>
+                <div onclick="showSection('calendar')" class="tool-card p-8 rounded-3xl glass-panel cursor-pointer transition-all">
+                    <div class="text-sage text-4xl mb-4"><i class="fa-solid fa-calendar-days"></i></div>
+                    <h3 class="text-xl font-bold">Calendar Suite</h3>
+                    <p class="text-sand/40 text-sm mt-2">Full calendar & date calculators.</p>
+                </div>
+                <div onclick="showSection('weather')" class="tool-card p-8 rounded-3xl glass-panel cursor-pointer transition-all">
+                    <div class="text-sage text-4xl mb-4"><i class="fa-solid fa-cloud-sun"></i></div>
+                    <h3 class="text-xl font-bold">Weather Station</h3>
+                    <p class="text-sand/40 text-sm mt-2">Real-time global weather data.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="currency-section" class="hidden">
+            <button onclick="showSection('home')" class="text-sage mb-8 block hover:underline">
+                <i class="fa-solid fa-angle-left mr-4 text-1xl">back</i>
+            </button>
+            <div class="max-w-2xl mx-auto glass-panel p-10 rounded-3xl">
+                <h2 class="text-3xl font-bold mb-8">Currency Converter</h2>
+                <div class="space-y-6">
+                    <input type="number" id="curr-amount" value="1" class="w-full p-4 rounded-xl text-xl font-bold">
+                    <div class="grid grid-cols-3 gap-2 items-center">
+                        <select id="curr-from" class="p-4 rounded-xl font-bold">
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="INR">INR</option>
+                        </select>
+                        <button onclick="swapCurrencies()" class="h-12 bg-moss/40 hover:bg-moss/60 rounded-xl font-bold transition-all flex items-center justify-center">
+                            <i class="fa-solid fa-right-left text-sage text-lg"></i>
+                        </button>
+                        <select id="curr-to" class="p-4 rounded-xl font-bold">
+                            <option value="EUR">EUR</option>
+                            <option value="USD">USD</option>
+                            <option value="GBP">GBP</option>
+                            <option value="INR">INR</option>
+                        </select>
+                    </div>
+                    <button onclick="convertCurrency()" class="w-full bg-sage text-deep font-black py-4 rounded-xl">CONVERT</button>
+                    <div id="curr-result" class="text-center text-2xl font-bold text-sand"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="json-section" class="hidden">
+            <button onclick="showSection('home')" class="text-sage mb-8 block hover:underline">
+                <i class="fa-solid fa-angle-left mr-4 text-1xl">back</i>
+            </button>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <textarea id="json-input" rows="12" class="w-full p-6 rounded-2xl font-mono text-xs" placeholder="Paste JSON here..."></textarea>
+                <textarea id="json-output" rows="12" class="w-full p-6 rounded-2xl font-mono text-xs" readonly placeholder="Output..."></textarea>
+            </div>
+            <div class="mt-6 flex gap-4">
+                <button onclick="processJSON('beautify')" class="bg-moss text-sand px-8 py-3 rounded-xl font-bold"><i class="fa-solid fa-wand-magic-sparkles mr-2"></i>Beautify</button>
+                <button onclick="processJSON('minify')" class="border border-moss text-sand px-8 py-3 rounded-xl font-bold"><i class="fa-solid fa-compress mr-2"></i>Minify</button>
+            </div>
+        </section>
+
+        <section id="clock-section" class="hidden">
+            <button onclick="showSection('home')" class="text-sage mb-8 block hover:underline">
+                <i class="fa-solid fa-angle-left mr-4 text-1xl">back</i>
+            </button>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 text-center">
+                <div class="glass-panel p-8 rounded-3xl flex flex-col justify-center min-h-[250px]">
+                    <h3 class="text-moss font-bold text-xs uppercase mb-4"><i class="fa-solid fa-clock mr-1"></i> System Time</h3>
+                    <div id="big-clock" class="text-5xl font-black text-sand">00:00:00</div>
+                </div>
+                <div class="glass-panel p-8 rounded-3xl flex flex-col justify-center min-h-[250px]">
+                    <h3 class="text-moss font-bold text-xs uppercase mb-4"><i class="fa-solid fa-stopwatch-20 mr-1"></i> Stopwatch</h3>
+                    <div id="sw-display" class="text-4xl font-mono text-sand mb-6">00:00.00</div>
+                    <div class="flex gap-2">
+                        <button id="sw-btn" onclick="toggleStopwatch()" class="flex-1 bg-moss py-2 rounded-lg font-bold">Start</button>
+                        <button onclick="resetStopwatch()" class="flex-1 border border-moss py-2 rounded-lg font-bold">Reset</button>
+                    </div>
+                </div>
+                <div class="glass-panel p-8 rounded-3xl flex flex-col justify-center min-h-[250px]">
+                    <h3 class="text-moss font-bold text-xs uppercase mb-4"><i class="fa-solid fa-hourglass-start mr-1"></i> Timer</h3>
+                    <div id="timer-setup">
+                        <div class="flex justify-center gap-2 mb-4">
+                            <input type="number" id="timer-min" placeholder="M" class="w-16 p-2 rounded text-center">
+                            <input type="number" id="timer-sec" placeholder="S" class="w-16 p-2 rounded text-center">
+                        </div>
+                        <button onclick="startTimer()" class="w-full bg-sage text-deep font-bold py-2 rounded-xl">START</button>
+                    </div>
+                    <div id="timer-running" class="hidden">
+                        <div id="timer-display" class="text-5xl font-mono text-sand mb-4">00:00</div>
+                        <button onclick="cancelTimer()" class="w-full border border-moss py-2 rounded-xl">CANCEL</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="calendar-section" class="hidden">
+            <button onclick="showSection('home')" class="text-sage mb-8 block hover:underline">
+                <i class="fa-solid fa-angle-left mr-4 text-1xl">back</i>
+            </button>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 glass-panel p-8 rounded-3xl">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 id="cal-month-year" class="text-2xl font-bold">Month Year</h3>
+                        <div class="flex gap-2">
+                            <button onclick="changeMonth(-1)" class="p-2 hover:bg-moss/30 rounded-lg text-sage transition-all"><i class="fa-solid fa-chevron-left"></i></button>
+                            <button onclick="changeMonth(1)" class="p-2 hover:bg-moss/30 rounded-lg text-sage transition-all"><i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-7 gap-1 text-center font-bold text-moss text-xs uppercase mb-2">
+                        <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+                    </div>
+                    <div id="cal-days" class="grid grid-cols-7 gap-1"></div>
+                </div>
+                <div class="space-y-6">
+                    <div class="glass-panel p-6 rounded-2xl">
+                        <h4 class="text-sage font-bold mb-4 italic"><i class="fa-solid fa-cake-candles mr-2"></i>Age Calc</h4>
+                        <input type="date" id="dob" class="w-full p-3 rounded-xl text-sm mb-3">
+                        <button onclick="calcAge()" class="w-full bg-sage text-deep font-bold py-2 rounded-lg">Run</button>
+                        <div id="age-out" class="mt-3 text-center text-sm font-bold"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="weather-section" class="hidden">
+            <button onclick="showSection('home')" class="text-sage mb-8 block hover:underline"><i class="fa-solid fa-arrow-left mr-2"></i>Back</button>
+            <div class="max-w-xl mx-auto glass-panel p-10 rounded-3xl">
+                <h2 class="text-3xl font-bold mb-8">Weather Station</h2>
+                <div class="flex flex-col gap-4 mb-8">
+                    <div class="flex gap-2">
+                        <input type="text" id="weather-city" placeholder="Enter city name..." class="flex-1 p-4 rounded-xl">
+                        <button onclick="getWeatherByCity()" class="bg-sage text-deep px-6 rounded-xl font-bold">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                    <button onclick="getPreciseLocation()" class="w-full border border-sage/40 text-sage py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-sage/10 transition-all">
+                        <i class="fa-solid fa-location-crosshairs"></i> Use My Precise Location
+                    </button>
+                </div>
+
+                <div id="weather-display" class="hidden text-center space-y-6">
+                    <div>
+                        <h3 id="w-name" class="text-2xl font-bold text-sand">City, Country</h3>
+                        <p id="w-desc" class="text-sand/40 italic capitalize">clear sky</p>
+                    </div>
+                    <div class="text-6xl font-black text-sage" id="w-temp">--°C</div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-black/20 p-4 rounded-2xl">
+                            <i class="fa-solid fa-droplet text-moss mb-2"></i>
+                            <div class="text-xs uppercase opacity-40">Humidity</div>
+                            <div id="w-humidity" class="font-bold">--%</div>
+                        </div>
+                        <div class="bg-black/20 p-4 rounded-2xl">
+                            <i class="fa-solid fa-wind text-moss mb-2"></i>
+                            <div class="text-xs uppercase opacity-40">Wind</div>
+                            <div id="w-wind" class="font-bold">-- m/s</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pass-section" class="hidden">
+            <button onclick="showSection('home')" class="text-sage mb-8 block hover:underline"><i class="fa-solid fa-arrow-left mr-2"></i>Back</button>
+            <div class="max-w-xl mx-auto glass-panel p-10 rounded-3xl">
+                <h2 class="text-3xl font-bold mb-8">Password Generator</h2>
+                <div id="pass-display" class="bg-black/40 p-6 rounded-2xl text-center text-xl font-mono text-sage border border-moss/20 mb-6">Click Generate</div>
+                <input type="range" id="pass-length" min="8" max="64" value="16" oninput="document.getElementById('pl-label').innerText=this.value" class="w-full accent-sage mb-2">
+                <div class="text-xs text-moss mb-8 italic">Length: <span id="pl-label">16</span></div>
+                <button onclick="generatePassword()" class="w-full bg-sage text-deep font-black py-4 rounded-xl"><i class="fa-solid fa-shield-halved mr-2"></i>GENERATE</button>
+            </div>
+        </section>
+
+    </main>
+
+    <button onclick="toggleDevModal()" class="fixed bottom-6 right-6 w-14 h-14 bg-sage text-deep rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-[60] text-2xl font-bold">
+        <i class="fa-solid fa-circle-info"></i>
+    </button>
+
+    <div id="dev-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[70] hidden flex items-center justify-center p-6" onclick="if(event.target.id==='dev-modal')toggleDevModal()">
+        <div class="bg-deep border border-moss w-full max-w-sm rounded-[2.5rem] p-8 text-center glass-panel">
+            <div class="w-20 h-20 bg-moss rounded-full mx-auto mb-4 flex items-center justify-center text-deep text-3xl font-bold">
+                <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <h2 class="text-2xl font-black text-sand">Prince Kumar</h2>
+            <p class="text-sand/50 text-sm my-4">Building tools with love and precision.</p>
+            <div class="flex justify-center gap-4 mb-6">
+                <a href="https://www.youtube.com/@myenv" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-black/40 rounded-full flex items-center justify-center hover:bg-moss/30 transition"><i class="fa-brands fa-youtube text-sage"></i></a>
+                <a href="https://www.instagram.com/myenv.in" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-black/40 rounded-full flex items-center justify-center hover:bg-moss/30 transition"><i class="fa-brands fa-instagram text-sage"></i></a>
+                <a href="https://www.linkedin.com/in/princekumar0711/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-black/40 rounded-full flex items-center justify-center hover:bg-moss/30 transition"><i class="fa-brands fa-linkedin-in text-sage"></i></a>
+                <a href="https://princekumar-git.github.io" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-black/40 rounded-full flex items-center justify-center hover:bg-moss/30 transition"><i class="fa-solid fa-globe text-sage"></i></a>
+            </div>
+            <button onclick="toggleDevModal()" class="w-full py-2 border border-moss text-sand/40 rounded-xl hover:text-sand">Close</button>
+        </div>
+    </div>
+
+    <script>
+        const apiKey = "a91669b4d4d84a0eed319aa78df56625";
+
+        // NAVIGATION
+        function showSection(id) {
+            document.querySelectorAll('main > section').forEach(s => s.classList.add('hidden'));
+            document.getElementById(id + '-section').classList.remove('hidden');
+            if (id === 'calendar') renderCalendar();
+            window.scrollTo(0, 0);
+        }
+        function toggleDevModal() { document.getElementById('dev-modal').classList.toggle('hidden'); }
+
+        // LIVE CLOCK
+        function updateClocks() {
+            const now = new Date();
+            const t = now.toLocaleTimeString([], { hour12: false });
+            const d = now.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+            document.getElementById('nav-clock').innerText = t;
+            document.getElementById('nav-date').innerText = d;
+            
+            // Fix: System clock in the tool suite now updates
+            const bigClock = document.getElementById('big-clock');
+            if (bigClock) bigClock.innerText = t;
+        }
+        setInterval(updateClocks, 1000); updateClocks();
+
+        // CURRENCY
+        function swapCurrencies() {
+            const fromSelect = document.getElementById('curr-from');
+            const toSelect = document.getElementById('curr-to');
+            const temp = fromSelect.value;
+            fromSelect.value = toSelect.value;
+            toSelect.value = temp;
+        }
+
+        async function convertCurrency() {
+            const a = document.getElementById('curr-amount').value;
+            const f = document.getElementById('curr-from').value;
+            const t = document.getElementById('curr-to').value;
+            try {
+                const res = await fetch(`https://open.er-api.com/v6/latest/${f}`);
+                const data = await res.json();
+                const total = (a * data.rates[t]).toFixed(2);
+                document.getElementById('curr-result').innerText = `${a} ${f} = ${total} ${t}`;
+            } catch (e) { alert("Conversion error"); }
+        }
+
+        // JSON
+        function processJSON(m) {
+            const v = document.getElementById('json-input').value;
+            try {
+                const p = JSON.parse(v);
+                document.getElementById('json-output').value = m === 'beautify' ? JSON.stringify(p, null, 4) : JSON.stringify(p);
+            } catch (e) { alert("Invalid JSON"); }
+        }
+
+        // STOPWATCH
+        let swStart, swInt, swR = false;
+        function toggleStopwatch() {
+            const b = document.getElementById('sw-btn');
+            if (!swR) {
+                swStart = Date.now(); swInt = setInterval(() => {
+                    const d = new Date(Date.now() - swStart);
+                    document.getElementById('sw-display').innerText = d.toISOString().slice(14, 21);
+                }, 10); b.innerText = "Stop"; swR = true;
+            } else { clearInterval(swInt); b.innerText = "Start"; swR = false; }
+        }
+        function resetStopwatch() { clearInterval(swInt); swR = false; document.getElementById('sw-display').innerText = "00:00.00"; document.getElementById('sw-btn').innerText = "Start"; }
+
+        // TIMER
+        let tInt, tSecs = 0;
+        function startTimer() {
+            tSecs = (parseInt(document.getElementById('timer-min').value) || 0) * 60 + (parseInt(document.getElementById('timer-sec').value) || 0);
+            if (tSecs <= 0) return;
+            document.getElementById('timer-setup').classList.add('hidden');
+            document.getElementById('timer-running').classList.remove('hidden');
+            tInt = setInterval(() => {
+                tSecs--;
+                const m = Math.floor(tSecs / 60).toString().padStart(2, '0');
+                const s = (tSecs % 60).toString().padStart(2, '0');
+                document.getElementById('timer-display').innerText = `${m}:${s}`;
+                if (tSecs <= 0) { clearInterval(tInt); alert("Done!"); cancelTimer(); }
+            }, 1000);
+        }
+        function cancelTimer() { clearInterval(tInt); document.getElementById('timer-setup').classList.remove('hidden'); document.getElementById('timer-running').classList.add('hidden'); }
+
+        // PASS GEN
+        function generatePassword() {
+            const l = document.getElementById('pass-length').value;
+            const c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
+            let p = ""; for (let i = 0; i < l; i++) p += c.charAt(Math.floor(Math.random() * c.length));
+            document.getElementById('pass-display').innerText = p;
+        }
+
+        // CALENDAR
+        let calDate = new Date();
+        function renderCalendar() {
+            const y = calDate.getFullYear(), m = calDate.getMonth();
+            const names = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            document.getElementById('cal-month-year').innerText = `${names[m]} ${y}`;
+            const first = new Date(y, m, 1).getDay(), last = new Date(y, m + 1, 0).getDate();
+            const cont = document.getElementById('cal-days'); cont.innerHTML = '';
+            for (let x = 0; x < first; x++) cont.appendChild(document.createElement('div'));
+            for (let i = 1; i <= last; i++) {
+                const d = document.createElement('div'); d.innerText = i;
+                d.className = (new Date().getDate() === i && new Date().getMonth() === m && new Date().getFullYear() === y)
+                    ? "h-12 flex items-center justify-center rounded-lg bg-sage text-deep font-bold"
+                    : "h-12 flex items-center justify-center hover:bg-moss/20";
+                cont.appendChild(d);
+            }
+        }
+        function changeMonth(d) { calDate.setMonth(calDate.getMonth() + d); renderCalendar(); }
+        function calcAge() {
+            const d = new Date(document.getElementById('dob').value); if (isNaN(d)) return;
+            document.getElementById('age-out').innerText = `Age: ${Math.floor((new Date() - d) / 31557600000)} years`;
+        }
+
+        // WEATHER
+        async function getWeatherByCity() {
+            const cityInput = document.getElementById('weather-city').value.trim();
+            if (!cityInput) return alert("Please enter a city name");
+            // Fix: Added encoding to handle city names with spaces
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(cityInput)}&units=metric&appid=${apiKey}`;
+            fetchWeatherData(url);
+        }
+
+        function getPreciseLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const { latitude, longitude } = position.coords;
+                        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
+                        fetchWeatherData(url);
+                    },
+                    (error) => {
+                        alert("Location access denied. Please type a city name instead.");
+                    }
+                );
+            } else {
+                alert("Geolocation is not supported by your browser.");
+            }
+        }
+
+        async function fetchWeatherData(url) {
+            const display = document.getElementById('weather-display');
+            try {
+                const res = await fetch(url);
+                if (!res.ok) throw new Error(res.status === 401 ? "API Key inactive or invalid" : "Location not found");
+                const data = await res.json();
+                document.getElementById('w-name').innerText = `${data.name}, ${data.sys.country}`;
+                document.getElementById('w-desc').innerText = data.weather[0].description;
+                document.getElementById('w-temp').innerText = `${Math.round(data.main.temp)}°C`;
+                document.getElementById('w-humidity').innerText = `${data.main.humidity}%`;
+                document.getElementById('w-wind').innerText = `${data.wind.speed} m/s`;
+                display.classList.remove('hidden');
+            } catch (err) {
+                alert(err.message);
+                display.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+
+</html>
