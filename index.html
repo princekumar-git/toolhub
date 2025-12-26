@@ -7,8 +7,7 @@
     <title>ToolHub | All-in-One Digital Arsenal</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <script>
@@ -121,8 +120,8 @@
         </section>
 
         <section id="currency-section" class="hidden">
-            <button onclick="showSection('home')" class="text-sage mb-8 block hover:underline">
-                <i class="fa-solid fa-angle-left mr-4 text-1xl">back</i>
+            <button onclick="showSection('home')" class="text-sage mb-8 flex items-center ">
+                <i class="fa-solid fa-angle-left mr-2"></i> Back
             </button>
             <div class="max-w-2xl mx-auto glass-panel p-10 rounded-3xl">
                 <h2 class="text-3xl font-bold mb-8">Currency Converter</h2>
@@ -135,7 +134,7 @@
                             <option value="GBP">GBP</option>
                             <option value="INR">INR</option>
                         </select>
-                        <button onclick="swapCurrencies()" class="h-12 bg-moss/40 hover:bg-moss/60 rounded-xl font-bold transition-all flex items-center justify-center">
+                        <button onclick="swapCurrencies()" class="h-12 bg-moss/40 hover:bg-moss/60 rounded-xl transition-all flex items-center justify-center">
                             <i class="fa-solid fa-right-left text-sage text-lg"></i>
                         </button>
                         <select id="curr-to" class="p-4 rounded-xl font-bold">
@@ -152,8 +151,8 @@
         </section>
 
         <section id="json-section" class="hidden">
-            <button onclick="showSection('home')" class="text-sage mb-8 block hover:underline">
-                <i class="fa-solid fa-angle-left mr-4 text-1xl">back</i>
+            <button onclick="showSection('home')" class="text-sage mb-8 flex items-center ">
+                <i class="fa-solid fa-angle-left mr-2"></i> Back
             </button>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <textarea id="json-input" rows="12" class="w-full p-6 rounded-2xl font-mono text-xs" placeholder="Paste JSON here..."></textarea>
@@ -166,8 +165,8 @@
         </section>
 
         <section id="clock-section" class="hidden">
-            <button onclick="showSection('home')" class="text-sage mb-8 block hover:underline">
-                <i class="fa-solid fa-angle-left mr-4 text-1xl">back</i>
+            <button onclick="showSection('home')" class="text-sage mb-8 flex items-center ">
+                <i class="fa-solid fa-angle-left mr-2"></i> Back
             </button>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 text-center">
                 <div class="glass-panel p-8 rounded-3xl flex flex-col justify-center min-h-[250px]">
@@ -200,8 +199,8 @@
         </section>
 
         <section id="calendar-section" class="hidden">
-            <button onclick="showSection('home')" class="text-sage mb-8 block hover:underline">
-                <i class="fa-solid fa-angle-left mr-4 text-1xl">back</i>
+            <button onclick="showSection('home')" class="text-sage mb-8 flex items-center ">
+                <i class="fa-solid fa-angle-left mr-2"></i> Back
             </button>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div class="lg:col-span-2 glass-panel p-8 rounded-3xl">
@@ -229,7 +228,9 @@
         </section>
 
         <section id="weather-section" class="hidden">
-            <button onclick="showSection('home')" class="text-sage mb-8 block hover:underline"><i class="fa-solid fa-arrow-left mr-2"></i>Back</button>
+            <button onclick="showSection('home')" class="text-sage mb-8 flex items-center ">
+                <i class="fa-solid fa-angle-left mr-2"></i> Back
+            </button>
             <div class="max-w-xl mx-auto glass-panel p-10 rounded-3xl">
                 <h2 class="text-3xl font-bold mb-8">Weather Station</h2>
                 <div class="flex flex-col gap-4 mb-8">
@@ -267,13 +268,46 @@
         </section>
 
         <section id="pass-section" class="hidden">
-            <button onclick="showSection('home')" class="text-sage mb-8 block hover:underline"><i class="fa-solid fa-arrow-left mr-2"></i>Back</button>
+            <button onclick="showSection('home')" class="text-sage mb-8 flex items-center ">
+                <i class="fa-solid fa-angle-left mr-2"></i> Back
+            </button>
             <div class="max-w-xl mx-auto glass-panel p-10 rounded-3xl">
                 <h2 class="text-3xl font-bold mb-8">Password Generator</h2>
-                <div id="pass-display" class="bg-black/40 p-6 rounded-2xl text-center text-xl font-mono text-sage border border-moss/20 mb-6">Click Generate</div>
-                <input type="range" id="pass-length" min="8" max="64" value="16" oninput="document.getElementById('pl-label').innerText=this.value" class="w-full accent-sage mb-2">
-                <div class="text-xs text-moss mb-8 italic">Length: <span id="pl-label">16</span></div>
-                <button onclick="generatePassword()" class="w-full bg-sage text-deep font-black py-4 rounded-xl"><i class="fa-solid fa-shield-halved mr-2"></i>GENERATE</button>
+                
+                <div id="pass-display" class="bg-black/40 p-6 rounded-2xl text-center text-xl font-mono text-sage border border-moss/20 mb-6 break-all">
+                    Click Generate
+                </div>
+
+                <div class="mb-8">
+                    <div class="flex justify-between text-xs text-moss mb-2 uppercase font-bold">
+                        <span>Length</span>
+                        <span id="pl-label">16</span>
+                    </div>
+                    <input type="range" id="pass-length" min="4" max="64" value="16" oninput="document.getElementById('pl-label').innerText=this.value" class="w-full accent-sage">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                        <input type="checkbox" id="p-upper" checked class="w-5 h-5 accent-sage">
+                        <span class="text-sm text-sand/70 group-hover:text-sand">Uppercase (A-Z)</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                        <input type="checkbox" id="p-lower" checked class="w-5 h-5 accent-sage">
+                        <span class="text-sm text-sand/70 group-hover:text-sand">Lowercase (a-z)</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                        <input type="checkbox" id="p-number" checked class="w-5 h-5 accent-sage">
+                        <span class="text-sm text-sand/70 group-hover:text-sand">Numbers (0-9)</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                        <input type="checkbox" id="p-symbol" class="w-5 h-5 accent-sage">
+                        <span class="text-sm text-sand/70 group-hover:text-sand">Symbols (!@#$%^&*)</span>
+                    </label>
+                </div>
+
+                <button onclick="generatePassword()" class="w-full bg-sage text-deep font-black py-4 rounded-xl hover:opacity-90 transition-all">
+                    <i class="fa-solid fa-shield-halved mr-2"></i> GENERATE PASSWORD
+                </button>
             </div>
         </section>
 
@@ -320,7 +354,6 @@
             document.getElementById('nav-clock').innerText = t;
             document.getElementById('nav-date').innerText = d;
             
-            // Fix: System clock in the tool suite now updates
             const bigClock = document.getElementById('big-clock');
             if (bigClock) bigClock.innerText = t;
         }
@@ -386,12 +419,39 @@
         }
         function cancelTimer() { clearInterval(tInt); document.getElementById('timer-setup').classList.remove('hidden'); document.getElementById('timer-running').classList.add('hidden'); }
 
-        // PASS GEN
+        // PASSWORD GENERATOR
         function generatePassword() {
-            const l = document.getElementById('pass-length').value;
-            const c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
-            let p = ""; for (let i = 0; i < l; i++) p += c.charAt(Math.floor(Math.random() * c.length));
-            document.getElementById('pass-display').innerText = p;
+            const length = document.getElementById('pass-length').value;
+            const hasUpper = document.getElementById('p-upper').checked;
+            const hasLower = document.getElementById('p-lower').checked;
+            const hasNumber = document.getElementById('p-number').checked;
+            const hasSymbol = document.getElementById('p-symbol').checked;
+
+            const sets = {
+                upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                lower: "abcdefghijklmnopqrstuvwxyz",
+                number: "0123456789",
+                symbol: "!@#$%^&*()_+-=[]{}|;:,.<>?"
+            };
+
+            let charPool = "";
+            if (hasUpper) charPool += sets.upper;
+            if (hasLower) charPool += sets.lower;
+            if (hasNumber) charPool += sets.number;
+            if (hasSymbol) charPool += sets.symbol;
+
+            if (charPool === "") {
+                alert("Please select at least one character type!");
+                return;
+            }
+
+            let password = "";
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * charPool.length);
+                password += charPool.charAt(randomIndex);
+            }
+
+            document.getElementById('pass-display').innerText = password;
         }
 
         // CALENDAR
@@ -421,7 +481,6 @@
         async function getWeatherByCity() {
             const cityInput = document.getElementById('weather-city').value.trim();
             if (!cityInput) return alert("Please enter a city name");
-            // Fix: Added encoding to handle city names with spaces
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(cityInput)}&units=metric&appid=${apiKey}`;
             fetchWeatherData(url);
         }
